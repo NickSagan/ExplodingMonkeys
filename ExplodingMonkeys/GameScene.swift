@@ -44,6 +44,10 @@ class GameScene: SKScene {
     func launch(angle: Int, velocity: Int) {
     }
     
+    func deg2rad(degrees: Int) -> Double {
+        return Double(degrees) * Double.pi / 180
+    }
+    
     func createPlayers() {
         player1 = SKSpriteNode(imageNamed: "player")
         player1.name = "player1"
