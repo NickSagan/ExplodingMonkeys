@@ -14,6 +14,8 @@
 		91CA3CC6275BB87700DA9E5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91CA3CC4275BB87700DA9E5D /* Main.storyboard */; };
 		91CA3CC8275BB87B00DA9E5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91CA3CC7275BB87B00DA9E5D /* Assets.xcassets */; };
 		91CA3CCB275BB87B00DA9E5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91CA3CC9275BB87B00DA9E5D /* LaunchScreen.storyboard */; };
+		91CA3CD2275C7AB800DA9E5D /* BuildingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA3CD1275C7AB800DA9E5D /* BuildingNode.swift */; };
+		91CA3CD4275C7B2900DA9E5D /* CollisionTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA3CD3275C7B2900DA9E5D /* CollisionTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		91CA3CC5275BB87700DA9E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		91CA3CC7275BB87B00DA9E5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91CA3CCA275BB87B00DA9E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		91CA3CD1275C7AB800DA9E5D /* BuildingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingNode.swift; sourceTree = "<group>"; };
+		91CA3CD3275C7B2900DA9E5D /* CollisionTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				91CA3CC4275BB87700DA9E5D /* Main.storyboard */,
 				91CA3CC7275BB87B00DA9E5D /* Assets.xcassets */,
 				91CA3CC9275BB87B00DA9E5D /* LaunchScreen.storyboard */,
+				91CA3CD1275C7AB800DA9E5D /* BuildingNode.swift */,
+				91CA3CD3275C7B2900DA9E5D /* CollisionTypes.swift */,
 			);
 			path = ExplodingMonkeys;
 			sourceTree = "<group>";
@@ -141,7 +147,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				91CA3CC1275BB87700DA9E5D /* GameScene.swift in Sources */,
+				91CA3CD2275C7AB800DA9E5D /* BuildingNode.swift in Sources */,
 				91CA3CC3275BB87700DA9E5D /* GameViewController.swift in Sources */,
+				91CA3CD4275C7B2900DA9E5D /* CollisionTypes.swift in Sources */,
 				91CA3CBB275BB87700DA9E5D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
