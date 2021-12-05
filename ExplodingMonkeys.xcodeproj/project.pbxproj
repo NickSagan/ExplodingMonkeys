@@ -16,6 +16,8 @@
 		91CA3CCB275BB87B00DA9E5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91CA3CC9275BB87B00DA9E5D /* LaunchScreen.storyboard */; };
 		91CA3CD2275C7AB800DA9E5D /* BuildingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA3CD1275C7AB800DA9E5D /* BuildingNode.swift */; };
 		91CA3CD4275C7B2900DA9E5D /* CollisionTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA3CD3275C7B2900DA9E5D /* CollisionTypes.swift */; };
+		91CA3CD9275CB09F00DA9E5D /* hitBuilding.sks in Resources */ = {isa = PBXBuildFile; fileRef = 91CA3CD7275CB09F00DA9E5D /* hitBuilding.sks */; };
+		91CA3CDA275CB09F00DA9E5D /* hitPlayer.sks in Resources */ = {isa = PBXBuildFile; fileRef = 91CA3CD8275CB09F00DA9E5D /* hitPlayer.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		91CA3CCA275BB87B00DA9E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91CA3CD1275C7AB800DA9E5D /* BuildingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingNode.swift; sourceTree = "<group>"; };
 		91CA3CD3275C7B2900DA9E5D /* CollisionTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionTypes.swift; sourceTree = "<group>"; };
+		91CA3CD7275CB09F00DA9E5D /* hitBuilding.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hitBuilding.sks; sourceTree = "<group>"; };
+		91CA3CD8275CB09F00DA9E5D /* hitPlayer.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hitPlayer.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 				91CA3CC9275BB87B00DA9E5D /* LaunchScreen.storyboard */,
 				91CA3CD1275C7AB800DA9E5D /* BuildingNode.swift */,
 				91CA3CD3275C7B2900DA9E5D /* CollisionTypes.swift */,
+				91CA3CD7275CB09F00DA9E5D /* hitBuilding.sks */,
+				91CA3CD8275CB09F00DA9E5D /* hitPlayer.sks */,
 			);
 			path = ExplodingMonkeys;
 			sourceTree = "<group>";
@@ -133,6 +139,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				91CA3CC6275BB87700DA9E5D /* Main.storyboard in Resources */,
+				91CA3CD9275CB09F00DA9E5D /* hitBuilding.sks in Resources */,
+				91CA3CDA275CB09F00DA9E5D /* hitPlayer.sks in Resources */,
 				91CA3CBD275BB87700DA9E5D /* GameScene.sks in Resources */,
 				91CA3CC8275BB87B00DA9E5D /* Assets.xcassets in Resources */,
 				91CA3CCB275BB87B00DA9E5D /* LaunchScreen.storyboard in Resources */,

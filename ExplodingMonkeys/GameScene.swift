@@ -22,6 +22,7 @@ class GameScene: SKScene {
         backgroundColor = UIColor(hue: 0.669, saturation: 0.99, brightness: 0.67, alpha: 1)
 
         createBuildings()
+        createPlayers()
     }
     
     func createBuildings() {
