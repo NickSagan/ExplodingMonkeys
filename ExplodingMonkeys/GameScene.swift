@@ -9,6 +9,7 @@ import SpriteKit
 
 class GameScene: SKScene {
     
+    weak var viewController: GameViewController!
     var buildings = [BuildingNode]()
 
     override func didMove(to view: SKView) {

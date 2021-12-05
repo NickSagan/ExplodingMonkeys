@@ -11,6 +11,22 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    @IBOutlet weak var angleSlider: UISlider!
+    @IBOutlet weak var angleLabel: UILabel!
+    @IBOutlet weak var velocitySlider: UISlider!
+    @IBOutlet weak var velocityLabel: UILabel!
+    @IBOutlet weak var playerNumber: UILabel!
+    @IBOutlet weak var launchButton: UIButton!
+    
+    @IBAction func angleChanged(_ sender: UISlider) {
+    }
+    @IBAction func velocityChanged(_ sender: UISlider) {
+    }
+    @IBAction func launch(_ sender: UIButton) {
+    }
+    
+    var currentGame: GameScene!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +38,8 @@ class GameViewController: UIViewController {
                 
                 // Present the scene
                 view.presentScene(scene)
+                currentGame = scene as? GameScene
+                currentGame.viewController = self
             }
             
             view.ignoresSiblingOrder = true
