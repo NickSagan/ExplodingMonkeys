@@ -227,9 +227,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         texture = SKTexture(image: img)
         currentImage = img
 
-        //Call configurePhysics() again so that SpriteKit will recalculate the per-pixel physics for our damaged building.
+        // Call configurePhysics() again so that SpriteKit will recalculate the per-pixel physics for our damaged building.
         configurePhysics()
     }
     
-    
+    override func update(_ currentTime: TimeInterval) {
+        guard banana != nil else { return }
+
+        if abs(banana.position.y) > 1000 {
+            banana.removeFromParent()
+            banana = nil
+            changePlayer()
+        }
+    }
 }
