@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var player1: SKSpriteNode!
     var player2: SKSpriteNode!
@@ -23,6 +23,8 @@ class GameScene: SKScene {
 
         createBuildings()
         createPlayers()
+        
+        physicsWorld.contactDelegate = self
     }
     
     func createBuildings() {
@@ -122,5 +124,33 @@ class GameScene: SKScene {
         let player2Building = buildings[buildings.count - 2]
         player2.position = CGPoint(x: player2Building.position.x, y: player2Building.position.y + ((player2Building.size.height + player2.size.height) / 2))
         addChild(player2)
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        let firstBody: SKPhysicsBody
+        let secondBody: SKPhysicsBody
+
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+
+        guard let firstNode = firstBody.node else { return }
+        guard let secondNode = secondBody.node else { return }
+
+        if firstNode.name == "banana" && secondNode.name == "building" {
+            bananaHit(building: secondNode, atPoint: contact.contactPoint)
+        }
+
+        if firstNode.name == "banana" && secondNode.name == "player1" {
+            destroy(player: player1)
+        }
+
+        if firstNode.name == "banana" && secondNode.name == "player2" {
+            destroy(player: player2)
+        }
     }
 }
