@@ -186,4 +186,50 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         viewController.activatePlayer(number: currentPlayer)
     }
+    
+    func bananaHit(building: SKNode, atPoint contactPoint: CGPoint) {
+        guard let building = building as? BuildingNode else { return }
+        let buildingLocation = convert(contactPoint, to: building) // asks the game scene to convert the collision contact point into the coordinates relative to the building node. That is, if the building node was at X:200 and the collision was at X:250, this would return X:50, because it was 50 points into the building node.
+        building.hit(at: buildingLocation)
+
+        if let explosion = SKEmitterNode(fileNamed: "hitBuilding") {
+            explosion.position = contactPoint
+            addChild(explosion)
+        }
+
+        banana.name = "" // it's to fix a small but annoying bug: if a banana just so happens to hit two buildings at the same time, then it will explode twice and thus call changePlayer() twice. By clearing the banana's name here, the second collision won't happen because our didBegin() method won't see the banana as being a banana any more – its name is gone.
+        
+        banana.removeFromParent()
+        banana = nil
+
+        changePlayer()
+    }
+    
+    func hit(at point: CGPoint) {
+        // Figure out where the building was hit. SpriteKit's positions things from the center and Core Graphics from the bottom left!
+        let convertedPoint = CGPoint(x: point.x + size.width / 2.0, y: abs(point.y - (size.height / 2.0)))
+
+        // Create a new Core Graphics context the size of our current sprite.
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let img = renderer.image { ctx in
+            
+            //Draw our current building image into the context. This will be the full building to begin with, but it will change when hit.
+            currentImage.draw(at: .zero)
+
+            //Create an ellipse at the collision point. The exact co-ordinates will be 32 points up and to the left of the collision, then 64x64 in size - an ellipse centered on the impact point.
+            ctx.cgContext.addEllipse(in: CGRect(x: convertedPoint.x - 32, y: convertedPoint.y - 32, width: 64, height: 64))
+            //Set the blend mode .clear then draw the ellipse, literally cutting an ellipse out of our image.
+            ctx.cgContext.setBlendMode(.clear)
+            ctx.cgContext.drawPath(using: .fill)
+        }
+
+        //Convert the contents of the Core Graphics context back to a UIImage, which is saved in the currentImage property for next time we’re hit, and used to update our building texture.
+        texture = SKTexture(image: img)
+        currentImage = img
+
+        //Call configurePhysics() again so that SpriteKit will recalculate the per-pixel physics for our damaged building.
+        configurePhysics()
+    }
+    
+    
 }
