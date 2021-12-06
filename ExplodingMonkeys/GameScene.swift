@@ -130,6 +130,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let firstBody: SKPhysicsBody
         let secondBody: SKPhysicsBody
 
+        // assign banana to firstBody, because its bitmask is the lowest
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
@@ -151,6 +152,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         if firstNode.name == "banana" && secondNode.name == "player2" {
             destroy(player: player2)
+        }
+    }
+    
+    func destroy(player: SKSpriteNode) {
+        if let explosion = SKEmitterNode(fileNamed: "hitPlayer") {
+            explosion.position = player.position
+            addChild(explosion)
+        }
+
+        player.removeFromParent()
+        banana.removeFromParent()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let newGame = GameScene(size: self.size)
+            newGame.viewController = self.viewController
+            self.viewController.currentGame = newGame
+
+            self.changePlayer()
+            newGame.currentPlayer = self.currentPlayer
+
+            let transition = SKTransition.doorway(withDuration: 1.5)
+            self.view?.presentScene(newGame, transition: transition)
         }
     }
 }
