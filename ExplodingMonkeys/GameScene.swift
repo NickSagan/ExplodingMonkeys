@@ -15,6 +15,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     var currentPlayer = 1
     
+    var player1score = 0
+    var player2score = 0
+    
     weak var viewController: GameViewController!
     var buildings = [BuildingNode]()
 
@@ -148,10 +151,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         if firstNode.name == "banana" && secondNode.name == "player1" {
             destroy(player: player1)
+            player2score += 1
         }
 
         if firstNode.name == "banana" && secondNode.name == "player2" {
             destroy(player: player2)
+            player1score += 1
         }
     }
     
@@ -163,6 +168,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         player.removeFromParent()
         banana.removeFromParent()
+        
+        
+        if player1score == 3 {
+            viewController.playerNumber.text = "Player 1 win!"
+            player1score = 0
+            player2score = 0
+        } else if player2score == 3 {
+            viewController.playerNumber.text = "Player 2 win!"
+            player1score = 0
+            player2score = 0
+        }
+
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             let newGame = GameScene(size: self.size)
@@ -171,6 +188,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
             self.changePlayer()
             newGame.currentPlayer = self.currentPlayer
+            newGame.player1score = self.player1score
+            newGame.player2score = self.player2score
 
             let transition = SKTransition.doorway(withDuration: 1.5)
             self.view?.presentScene(newGame, transition: transition)
