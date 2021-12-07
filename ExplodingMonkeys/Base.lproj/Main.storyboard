@@ -63,6 +63,13 @@
                                     <action selector="launch:" destination="BV1-FR-VrT" eventType="touchUpInside" id="HEL-zO-bCQ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player-1 0:0 Player-2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPl-bX-CL3">
+                                <rect key="frame" x="20" y="57" width="159" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -72,6 +79,7 @@
                         <outlet property="angleSlider" destination="Cgv-5f-QDc" id="MHq-0y-dgU"/>
                         <outlet property="launchButton" destination="jd7-fq-SfB" id="p6x-aI-Af2"/>
                         <outlet property="playerNumber" destination="eGN-aF-gvL" id="oby-ea-gnb"/>
+                        <outlet property="playersScore" destination="bPl-bX-CL3" id="oSB-bH-C2H"/>
                         <outlet property="velocityLabel" destination="Aoy-Ix-Wlf" id="pVe-So-oYe"/>
                         <outlet property="velocitySlider" destination="SGa-gN-Zc8" id="lF6-as-F5m"/>
                     </connections>

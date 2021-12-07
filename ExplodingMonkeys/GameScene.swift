@@ -28,13 +28,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createPlayers()
         
         physicsWorld.contactDelegate = self
+        physicsWorld.gravity.dx = Double.random(in: -3.0...3.0)
     }
     
     func createBuildings() {
         var currentX: CGFloat = -15
 
         while currentX < 1024 {
-            let size = CGSize(width: Int.random(in: 2...4) * 40, height: Int.random(in: 300...600))
+            let size = CGSize(width: Int.random(in: 2...4) * 40, height: Int.random(in: 150...450))
             currentX += size.width + 2
 
             let building = BuildingNode(color: UIColor.red, size: size)
@@ -150,13 +151,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
 
         if firstNode.name == "banana" && secondNode.name == "player1" {
-            destroy(player: player1)
             player2score += 1
+            viewController.playersScore.text = "Player-1 \(player1score):\(player2score) Player-2"
+            destroy(player: player1)
         }
 
         if firstNode.name == "banana" && secondNode.name == "player2" {
-            destroy(player: player2)
             player1score += 1
+            viewController.playersScore.text = "Player-1 \(player1score):\(player2score) Player-2"
+            destroy(player: player2)
         }
     }
     
@@ -190,6 +193,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             newGame.currentPlayer = self.currentPlayer
             newGame.player1score = self.player1score
             newGame.player2score = self.player2score
+            
+            newGame.viewController.playersScore.text = "Player-1 \(self.player1score):\(self.player2score) Player-2"
 
             let transition = SKTransition.doorway(withDuration: 1.5)
             self.view?.presentScene(newGame, transition: transition)

@@ -11,6 +11,7 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    @IBOutlet weak var playersScore: UILabel!
     @IBOutlet weak var angleSlider: UISlider!
     @IBOutlet weak var angleLabel: UILabel!
     @IBOutlet weak var velocitySlider: UISlider!
